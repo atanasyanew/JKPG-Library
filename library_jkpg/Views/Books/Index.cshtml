@@ -7,16 +7,16 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Books")" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add new book</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.PublicationYear)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.publicationinfo)
         </th>
@@ -26,17 +26,18 @@
         <th>
             @Html.DisplayNameFor(model => model.CLASSIFICATION.Signum)
         </th>
-        <th></th>
+        @*<th></th>*@
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
+        <td width="50%">
+            @*@Html.DisplayFor(modelItem => item.Title)*@
+            <a href="@Url.Action("Details", new { id = item.ISBN })">@Html.DisplayFor(modelItem => item.Title)</a>
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PublicationYear)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.publicationinfo)
         </td>
@@ -46,11 +47,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.CLASSIFICATION.Signum)
         </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ISBN }) |
             @Html.ActionLink("Details", "Details", new { id=item.ISBN }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ISBN })
-        </td>
+        </td>*@
     </tr>
 }
 
