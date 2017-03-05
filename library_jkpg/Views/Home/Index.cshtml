@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h2>Welcome to Jönköping University Library</h2>
+
+<div class="w3-container">
+    <blockquote class="w3-panel w3-leftbar w3-light-grey">
+    <p class="w3-xlarge w3-serif"><i>&#10077;Take your dreams off the shelf&#10078;</i></p>
+    </blockquote>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/Content/images/puff_admi_stor.jpg" class="img-responsive center-block" />
+    </div>
+
+    <div class="col-md-6">
+        <a href="@Url.Action("index", "Books")" class="btn btn-default btn-large btn-block"><span class="glyphicon glyphicon-book"></span> Books</a>
+        <a href="@Url.Action("index", "Authors")" class="btn btn-default btn-large btn-block"><span class="glyphicon glyphicon-pencil"></span> Authors</a>
+    </div>
+</div>

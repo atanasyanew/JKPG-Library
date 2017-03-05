@@ -1,0 +1,58 @@
+﻿@model library_jkpg.Models.BOOK
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BOOK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicationYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicationYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publicationinfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publicationinfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLASSIFICATION.Signum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLASSIFICATION.Signum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ISBN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
