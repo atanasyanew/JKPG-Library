@@ -8,6 +8,15 @@
 
 <div>
     <h4>BOOK</h4>
+
+    <div>
+        <a href="@Url.Action("Index", "Books")" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Back to List</a>
+
+        <a href="@Url.Action("Edit", "Books", new { id = Model.ISBN })" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+
+        <a href="@Url.Action("Delete", "Books", new { id = Model.ISBN })" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+    </div>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,6 +25,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
         </dd>
 
         <dt>
@@ -53,6 +70,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ISBN }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ISBN }) |
+        @Html.ActionLink("Back to List", "Index")*@
 </p>
