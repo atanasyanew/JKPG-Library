@@ -1,45 +1,68 @@
-﻿@model IEnumerable<library_jkpg.Models.AUTHOR>
+﻿@*@model IEnumerable<library_jkpg.Models.AUTHOR>*@
+@model PagedList.IPagedList<library_jkpg.Models.AUTHOR>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+<div class="row form-inline">
+    <div class="form-group">
+        <a href="@Url.Action("Create", "Authors")" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add new Author</a>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+    <div class="form-group">
+        @using (Html.BeginForm("Index", "Authors", FormMethod.Get))
+        {
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Find by First Name, Last Name and BirthYear" })
+            <input type="submit" value="Search" class="btn btn-default" />
+        }
+    </div>
+
+</div>
+
+<br />
+<table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstName, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @*@Html.DisplayNameFor(model => model.LastName)*@
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.LastName, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BirthYear)
+            @*@Html.DisplayNameFor(model => model.BirthYear)*@
+            @Html.ActionLink("Birth Year", "Index", new { sortOrder = ViewBag.BirthYear, currentFilter = ViewBag.CurrentFilter })
         </th>
-        <th></th>
+        @*<th></th>*@
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td nowrap>
+            <a href="@Url.Action("Details", new { id = item.Aid })"><span class="glyphicon glyphicon-info-sign"></span></a> | 
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
-        <td>
+        <td nowrap>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BirthYear)
         </td>
-        <td>
+        @*<td nowrap>
             @Html.ActionLink("Edit", "Edit", new { id=item.Aid }) |
             @Html.ActionLink("Details", "Details", new { id=item.Aid }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Aid })
-        </td>
+        </td>*@
     </tr>
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

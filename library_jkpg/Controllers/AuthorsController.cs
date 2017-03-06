@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using library_jkpg.Models;
+using PagedList;
 
 namespace library_jkpg.Controllers
 {
@@ -17,11 +18,77 @@ namespace library_jkpg.Controllers
 
 
         // GET: Authors
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.AUTHORs.ToList());
+        //}
+        public ActionResult Index(string sortOrder,
+                                  string currentFilter,
+                                  string searchString,
+                                  int? page,
+                                  int? show)
         {
-            return View(db.AUTHORs.ToList());
-        }
+            //sort strings
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.FirstName = sortOrder == "FirstName" ? "FirstName_desc" : "FirstName";
+            ViewBag.LastName = sortOrder == "LastName" ? "LastName_desc" : "LastName";
+            ViewBag.BirthYear = sortOrder == "BirthYear" ? "BirthYear_desc" : "BirthYear";
 
+            //Find by...
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var authors = from a in db.AUTHORs
+                        select a;
+
+            //Find by Title, ISBN or Publication Info
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                authors = authors.Where(a => a.FirstName.Contains(searchString)
+                                      || a.LastName.Contains(searchString)
+                                      || a.BirthYear.Contains(searchString)
+                                      );
+            }
+
+            switch (sortOrder)
+            {
+                case "FirstName":
+                    authors = authors.OrderBy(a => a.FirstName);
+                    break;
+                case "FirstName_desc":
+                    authors = authors.OrderByDescending(a => a.FirstName);
+                    break;
+                case "LastName":
+                    authors = authors.OrderBy(a => a.LastName);
+                    break;
+                case "LastName_desc":
+                    authors = authors.OrderByDescending(a => a.LastName);
+                    break;
+                case "BirthYear":
+                    authors = authors.OrderBy(a=> a.BirthYear);
+                    break;
+                case "BirthYear_desc":
+                    authors = authors.OrderByDescending(a => a.BirthYear);
+                    break;
+                default:
+                    authors = authors.OrderByDescending(a => a.Aid);
+                    break;
+            }
+
+            // return View(books.ToList());
+            //int pageSize = 20;
+            int pageSize = (show ?? 20);
+            int pageNumber = (page ?? 1);
+            return View(authors.ToPagedList(pageNumber, pageSize));
+        }
 
         // GET: Authors/Details/5
         public ActionResult Details(int? id)
