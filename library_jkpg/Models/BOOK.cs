@@ -11,7 +11,8 @@ namespace library_jkpg.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BOOK
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +24,11 @@ namespace library_jkpg.Models
         public string ISBN { get; set; }
         public string Title { get; set; }
         public Nullable<int> SignId { get; set; }
+        [Display(Name = "Publication Year")]
         public string PublicationYear { get; set; }
+        [Display(Name = "Publication Info")]
         public string publicationinfo { get; set; }
+        [Display(Name = "Pages")]
         public Nullable<short> pages { get; set; }
     
         public virtual CLASSIFICATION CLASSIFICATION { get; set; }
