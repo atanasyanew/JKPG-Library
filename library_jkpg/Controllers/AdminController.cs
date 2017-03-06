@@ -15,6 +15,7 @@ using PagedList;
 
 namespace library_jkpg.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private ApplicationUserManager _userManager;
