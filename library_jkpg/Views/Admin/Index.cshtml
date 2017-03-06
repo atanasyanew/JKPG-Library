@@ -5,63 +5,79 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Back to Home", "../", "Home", null, new { @class = "btn btn-default" })
-</p>
-<br />
-@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
-{
+<h2>Administration</h2>
 
-    <div class="form-group">
-        Search:&nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string)
+<div class="form-group">
+    <a href="@Url.Action("Create", "Admin")" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Create New User</a>
+    <a href="@Url.Action("ViewAllRoles", "Admin")" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i> Roles Management</a>
 
-        <input type="submit" value="Search" />
-    </div>
-}
-<br />
+    @*@Html.ActionLink("Create New User", "Create", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Back to Home", "../", "Home", null, new { @class = "btn btn-default" })*@
+</div>
 
-<table class="table">
-    <tr>
-        <th>
-            Email
-        </th>
-        <th>
-            Locked Out
-        </th>
-        <th></th>
-    </tr>
+        @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+        {
+            <div class="form-group form-inline">
+                &nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Search..." })
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        }
+  
+    <br />
 
-    @foreach (var item in Model)
-    {
+    <table class="table table-bordered table-hover">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)     
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
+            <th>
+                Email
+            </th>
+            @*<th>
+                Locked Out
+            </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+                </td>*@
+                <td>
+                @Html.ActionLink(
+                    "Edit",
+                    "EditUser",
+                    new { UserName = item.UserName}
+                    //new { @class = "btn btn-default"} 
+                ) 
+                    |
                 @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
                 {
-                    @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
-                    new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
-                }
-            </td>
-        </tr>
-    }
+                @Html.ActionLink(
+                    "Delete",
+                    "DeleteUser",
+                    new { UserName = item.UserName},
+                    new { onclick = "return confirm('Are you sure you wish to delete this user?');" }
+                )
+                  }
+                </td>
+            </tr>
+        }
 
 
-</table>
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-@Html.PagedListPager(Model,
+    @Html.PagedListPager(Model,
     page => Url.Action("Index",
-    new { page,
+    new
+    {
+        page,
         searchStringUserNameOrEmail = ViewBag.searchStringUserNameOrEmail,
-        currentFilter = ViewBag.CurrentFilter }))
-<hr />
+        currentFilter = ViewBag.CurrentFilter
+    }))
+    <hr />

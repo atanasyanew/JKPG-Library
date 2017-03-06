@@ -2,53 +2,79 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Edit User Roles</h2>
+<h4>ADMINISTRATION</h4>
+
 @using (Html.BeginForm())
 {
+
     @Html.AntiForgeryToken()
-    <br />
-    @Html.ValidationSummary(true,
-    "",
-    new { @class = "text-danger" })
-    <div>
-        @Html.ActionLink("Back",
-       "EditUser",
-       new { UserName = Model.UserName },
-       new { @class = "btn btn-default" })
-        <input type="submit" value="Add Role" class="btn btn-default" />
-        @Html.DropDownList("AddRole")
+    <div class="form-horizontal">
+        <div>
+            <a href="@Url.Action("Index", "Admin")"
+               class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i> Back to List
+            </a>
+
+            @Html.ActionLink("Back to Edit User",
+             "EditUser",
+              new { UserName = Model.UserName },
+              new { @class = "btn btn-default" })
+
+        </div>
+        <br />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-inline">
+            @* moved upper in page
+            @Html.ActionLink("Back",
+            "EditUser",
+             new { UserName = Model.UserName },
+             new { @class = "btn btn-default" })
+            @Html.DropDownList("AddRole")*@
+            <h4 class="form-control-static">Add roles for user: <b class="text-danger">@Model.UserName</b></h4>
+
+            @Html.DropDownList("AddRole", null, htmlAttributes: new { @class = "form-control" })
+
+            <input type="submit" value="Add Role" class="btn btn-default" />
+
+        </div>
+
     </div>
-    <br />
+        <br />
 
-    <table class="table">
-        <tr>
-            <th>
-                Existing Roles:
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model.colUserRoleDTO)
-        {
+        <table class="table table-bordered table-hover">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RoleName)
-                </td>
-                <td>
-                    @if (!((Model.UserName.ToLower() ==
-                        this.User.Identity.Name.ToLower()) &&
-                        item.RoleName == "Administrator") &&
-                        item.RoleName != "No Roles Found")
-                    {
-                        @Html.ActionLink("Delete", "DeleteRole",
+                <th>
+                    Existing Roles:
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.colUserRoleDTO)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleName)
+                    </td>
+                    <td>
+                        @if (!((Model.UserName.ToLower() ==
+                    this.User.Identity.Name.ToLower()) &&
+                    item.RoleName == "Administrator") &&
+                    item.RoleName != "No Roles Found")
+                        {
+                            @Html.ActionLink("Delete", "DeleteRole",
                        new { UserName = item.UserName, RoleName = item.RoleName },
                         new
                         {
                             onclick =
                         "return confirm('Are you sure you wish to delete this role?');"
                         })
-                    }
-                </td>
-            </tr>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
         }
-    </table>
-}

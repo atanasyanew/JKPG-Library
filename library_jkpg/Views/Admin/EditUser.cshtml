@@ -3,12 +3,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Edit User</h2>
+<h4>ADMINISTRATION</h4>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Edit User</h4>
+        <div>
+            <a href="@Url.Action("Index", "Admin")"
+               class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i> Back to List
+            </a>
+
+            <a href="@Url.Action("EditRoles", "Admin", 
+                    new { UserName = Model.UserName })" 
+               class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i> Edit User Roles</a>
+
+        </div>
+
+        <br />
         @Html.ValidationSummary(true,
        "",
        new { @class = "text-danger" })
@@ -47,25 +63,29 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*LockoutEndDateUtc
+            <div class="form-group">
             @Html.LabelFor(model => model.LockoutEndDateUtc,
            htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.LockoutEndDateUtc,
                new { htmlAttributes = new { @class = "form-control" } })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-                @Html.ActionLink("Edit Roles", "EditRoles",
+                <input type="submit" value="Save" class="btn btn-default btn-success" />
+
+                @*@Html.ActionLink("Edit Roles", "EditRoles",
                new { UserName = Model.UserName },
                new { @class = "btn btn-default" })
+                
                 @Html.ActionLink("Back to List",
                "Index",
                null,
-               new { @class = "btn btn-default" })
+               new { @class = "btn btn-default" })*@
+
             </div>
         </div>
     </div>

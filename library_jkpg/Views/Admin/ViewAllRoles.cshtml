@@ -3,40 +3,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-<p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Add Role", "AddRole", null, new { @class = "btn btn-default" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Role
-        </th>
-        <th></th>
-    </tr>
+<h2>Roles Management</h2>
+<h4>ADMINISTRATION</h4>
 
-    @foreach (var item in Model)
-    {
+<div class="form-horizontal">
+    <div>
+        <a href="@Url.Action("Index", "Admin")"
+           class="btn btn-default">
+           <i class="glyphicon glyphicon-chevron-left"></i> Back to List</a>
+
+        <a href="@Url.Action("AddRole", "Admin")" 
+           class="btn btn-default">
+           <i class="glyphicon glyphicon-plus"></i> Add New Role</a>
+    </div>
+
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<p>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Role", "AddRole", null, new { @class = "btn btn-default" })
+    </p>*@
+  </div>
+    <table class="table table-bordered table-hover">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoleName)
-            </td>
-            <td>
-                @if (item.RoleName.ToLower() != "administrator")
+            <th>
+                Role
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    @if (item.RoleName.ToLower() != "administrator")
                 {
-                    @Html.ActionLink("Delete", "DeleteUserRole",
+                        @Html.ActionLink("Delete", "DeleteUserRole",
                    new { RoleName = item.RoleName },
                    new
                    {
                        onclick =
                    "return confirm('Are you sure you wish to delete this role?');"
                    })
-                }
-            </td>
+                    }
+                </td>
 
-        </tr>
-    }
-</table>
+            </tr>
+        }
+    </table>
 
