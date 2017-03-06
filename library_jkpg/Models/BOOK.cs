@@ -24,6 +24,8 @@ namespace library_jkpg.Models
         public string ISBN { get; set; }
         public string Title { get; set; }
         public Nullable<int> SignId { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Publication Year")]
         public string PublicationYear { get; set; }
         [Display(Name = "Publication Info")]

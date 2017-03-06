@@ -1,30 +1,56 @@
-﻿@model IEnumerable<library_jkpg.Models.BOOK>
-
+﻿@*@model IEnumerable<library_jkpg.Models.BOOK>*@
+@model PagedList.IPagedList<library_jkpg.Models.BOOK>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<p>
-    <a href="@Url.Action("Create", "Books")" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add new book</a>
-</p>
+<div class="row form-inline">
+    <div class="form-group">
+        <a href="@Url.Action("Create", "Books")" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add new book</a>
+    </div>
+
+    <div class="form-group">
+        @using (Html.BeginForm("Index", "Books", FormMethod.Get))
+        {  
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Find by Title, ISBN or Publication Info" })
+            <input type="submit" value="Search" class="btn btn-default" />
+            @*<button type="button"  value="Search" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>*@
+        }
+    </div>
+
+ </div>
+
+<br />
+
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @*@Html.DisplayNameFor(model => model.Title)*@
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         @*<th>
             @Html.DisplayNameFor(model => model.PublicationYear)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.publicationinfo)
+            @*@Html.DisplayNameFor(model => model.publicationinfo)*@
+            @Html.ActionLink("Publication Info", "Index", new { sortOrder = ViewBag.PublicationInfoSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pages)
+            @*@Html.DisplayNameFor(model => model.ISBN)*@
+            @Html.ActionLink("ISBN", "Index", new { sortOrder = ViewBag.IsbnSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CLASSIFICATION.Signum)
+            @*@Html.DisplayNameFor(model => model.pages)*@
+            @Html.ActionLink("Pages", "Index", new { sortOrder = ViewBag.PagesSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CLASSIFICATION.Signum)*@
+            @Html.ActionLink("Signum", "Index", new { sortOrder = ViewBag.SignumSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         @*<th></th>*@
     </tr>
@@ -41,6 +67,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.publicationinfo)
         </td>
+        <td nowrap>
+            @Html.DisplayFor(modelItem => item.ISBN)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.pages)
         </td>
@@ -56,3 +85,9 @@
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
