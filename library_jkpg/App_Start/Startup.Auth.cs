@@ -48,9 +48,9 @@ namespace library_jkpg
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            app.UseMicrosoftAccountAuthentication(
-                clientId: "0132b5a2-9804-41bb-9900-6a8751979279",
-                clientSecret: "OzAm39NBT6hnhFeQXzfgb5h");
+            //app.UseMicrosoftAccountAuthentication(
+            //    clientId: "0132b5a2-9804-41bb-9900-6a8751979279",
+            //    clientSecret: "xNmdU050XC4boSUJ41a3PhJ");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
@@ -60,11 +60,12 @@ namespace library_jkpg
                appId: "777482212404875",
                appSecret: "892e3b4ff27c6f25baf5dc6fea3828fb");
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "327003341333-kjdb1d9qml8clmkfq0jefs2ukvmn2vdh.apps.googleusercontent.com",
-                ClientSecret = "h4cg1mRl1mC8tO_CKBafJWZU"
-            });
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "327003341333-kjdb1d9qml8clmkfq0jefs2ukvmn2vdh.apps.googleusercontent.com",
+            //    ClientSecret = "h4cg1mRl1mC8tO_CKBafJWZU"
+            //});
+
         }
     }
 }
