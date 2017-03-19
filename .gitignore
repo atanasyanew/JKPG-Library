@@ -1,8 +1,7 @@
 #my ignores
 
 
-!library_jkpg/App_Data/ASPNETDB.MDF
-!library_jkpg/App_Data/aspnetdb_log.ldf
+!_Help
 .vs
 
 
