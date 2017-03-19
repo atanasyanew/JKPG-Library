@@ -1,0 +1,8 @@
+In the skript files exchange 'DBxxxx' with the name your database should have.
+
+Run the scripts in the folowwing order:
+CreateDatabase.sql
+CreateDBver3.sql
+dataLoadVer3.sql
+
+One way to run the scripts is to open the script in a query window in the SQL-Server management studio.
