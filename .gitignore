@@ -2,7 +2,7 @@
 
 
 !_Help
-!_Help/App_Data/.
+!_Help/App_Data/*
 .vs
 
 
