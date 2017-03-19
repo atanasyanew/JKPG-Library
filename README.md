@@ -1,5 +1,5 @@
 <a href="https://ju.se">
-    <img src="https://github.com/atanasyanew/JKPG-Library/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
+    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
 </a>
 
 JKPG Library
@@ -19,11 +19,20 @@ The project is developed in [Jönköping University]( https://ju.se/), [Server-s
 
 ## Installation
 
-- Database and scripts included in [_Help](https://github.com/atanasyanew/JKPG-Library/_Help) folder
+- Database and scripts included in [_Help](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help) folder
 
 
 ## Additional information
 
-- [Project assignment](https://github.com/atanasyanew/JKPG-Library/_Help/laboratory-work.pdf)
-- [Project Report](https://github.com/atanasyanew/JKPG-Library/_Help/ProjectReport.doc)
+- [Project assignment](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/laboratory-work.pdf)
+- [Project Report](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/ProjectReport.doc)
 
+
+## TO DO
+- add online demo link
+<a href="https://ju.se">
+    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
+</a>
+<a href="https://ju.se">
+    <img src="https://rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
+</a>
