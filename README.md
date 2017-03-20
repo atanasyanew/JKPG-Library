@@ -4,6 +4,8 @@
 
 JKPG Library
 ======================
+[![Demo](https://img.shields.io/badge/Demo-Online-green.svg)](http://library-jkpg.azurewebsites.net/)
+
 
 > The public library here in Jönköping has ordered a website from us through which users should be able to browse the books and authors they have in their internal database. The library staff should also be able to login and apply CRUD (Create, Read, Update & Delete) operations on books and authors (each librarian should have her own account).
 
@@ -26,8 +28,4 @@ The project is developed in [Jönköping University]( https://ju.se/), [Server-s
 
 - [Project assignment](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/laboratory-work.pdf)
 - [Project Report](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/ProjectReport.doc)
-
-
-## TO DO
-- add online demo link
 
