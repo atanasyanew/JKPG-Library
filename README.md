@@ -1,5 +1,5 @@
 <a href="https://ju.se">
-    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
+    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Help/ju_logo.svg" title="Logo" align="right" height="30" />
 </a>
 
 JKPG Library
@@ -30,9 +30,4 @@ The project is developed in [Jönköping University]( https://ju.se/), [Server-s
 
 ## TO DO
 - add online demo link
-<a href="https://ju.se">
-    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
-</a>
-<a href="https://ju.se">
-    <img src="https://rawgit.com/atanasyanew/JKPG-Library/tree/master/_Help/ju_logo.svg" alt="JU logo" title="Logo" align="right" height="35" />
-</a>
+
