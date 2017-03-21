@@ -1,5 +1,5 @@
 <a href="https://ju.se">
-    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Help/ju_logo.svg" title="Logo" align="right" height="30" />
+    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Resources/ju_logo.svg" title="Logo" align="right" height="30" />
 </a>
 
 JKPG Library
@@ -21,11 +21,11 @@ The project is developed in [Jönköping University]( https://ju.se/), [Server-s
 
 ## Installation
 
-- Database and scripts included in [_Help](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help) folder
+- Database and scripts included in [_Resources](https://github.com/atanasyanew/JKPG-Library/tree/master/_Resources) folder
 
 
 ## Additional information
 
-- [Project assignment](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/laboratory-work.pdf)
-- [Project Report](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/ProjectReport.doc)
+- [Project assignment](https://github.com/atanasyanew/JKPG-Library/tree/master/_Resources/laboratory-work.pdf)
+- [Project Report](https://github.com/atanasyanew/JKPG-Library/tree/master/_Resources/ProjectReport.doc)
 
