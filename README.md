@@ -1,8 +1,4 @@
-<a href="https://ju.se">
-    <img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Help/ju_logo.svg" title="Logo" align="right" height="30" />
-</a>
-
-JKPG Library
+JKPG Library <a href="https://ju.se"><img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Help/ju_logo.svg" title="Logo" align="right" height="30" /></a> 
 ======================
 [![Demo](https://img.shields.io/badge/Demo-Online-green.svg)](http://library-jkpg.azurewebsites.net/)
 
@@ -27,5 +23,7 @@ The project is developed in [Jönköping University]( https://ju.se/), [Server-s
 ## Additional information
 
 - [Project assignment](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/laboratory-work.pdf)
+- [User Guide](https://github.com/atanasyanew/JKPG-Library/wiki)
+<!--
 - [Project Report](https://github.com/atanasyanew/JKPG-Library/tree/master/_Help/ProjectReport.doc)
-
+-->
