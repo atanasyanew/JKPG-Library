@@ -1,4 +1,4 @@
-#JKPG Library <a href="https://ju.se"><img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Resources/ju_logo.svg" title="Logo" align="right" height="30" /></a> 
+JKPG Library <a href="https://ju.se"><img src="https://cdn.rawgit.com/atanasyanew/JKPG-Library/master/_Resources/ju_logo.svg" title="Logo" align="right" height="30" /></a> 
 ======
 [![Demo](https://img.shields.io/badge/Demo-Online-green.svg)](http://library-jkpg.azurewebsites.net/)
 
