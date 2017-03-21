@@ -1,8 +1,8 @@
 #my ignores
 
 
-!_Help/*
-!_Help/App_Data/*
+!_Resources/*
+!_Resources/App_Data/*
 .vs
 
 
