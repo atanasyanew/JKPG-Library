@@ -1,4 +1,4 @@
 plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
-remote_theme: poole/poole
+remote_theme: hemangsk/Gravity
