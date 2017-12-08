@@ -1,4 +1,4 @@
 plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
-remote_theme: dhulihan/hooligan
+remote_theme: taniarascia/startjekyll
