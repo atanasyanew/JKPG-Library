@@ -1,4 +1,4 @@
 plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
-remote_theme: jekyll/minima
+remote_theme: matrixfox/jekyll-theme-bootstrap
