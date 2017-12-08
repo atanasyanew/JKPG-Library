@@ -1,4 +1,4 @@
 plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
-remote_theme: benbalter/retlab
+remote_theme: codeasashu/hcz-jekyll-blog
