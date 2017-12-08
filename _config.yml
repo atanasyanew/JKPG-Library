@@ -2,3 +2,5 @@ plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
 remote_theme: streetturtle/jekyll-clean-dark
+
+theme: jekyll-theme-slate
