@@ -1,4 +1,4 @@
 plugins:
 #  - jekyll-admin
   - jekyll-remote-theme
-remote_theme: LavenderGrey/jekyll-theme-conscious-sedation
+remote_theme: allejo/jekyll-docs-theme
