@@ -3,7 +3,7 @@ JKPG Library <a href="https://ju.se"><img src="docs/ju_logo.svg" title="JU logo"
 <!--
 [![Demo](https://img.shields.io/badge/Demo-Online-green.svg)](http://library-jkpg.azurewebsites.net/)
 -->
-[![Presentation](https://img.shields.io/badge/Guide-End%20User-blue.svg?style=for-the-badge)](https://rawgit.com/atanasyanew/JKPG-Library/master/_Resources/Presentation/index.html)
+[![Presentation](https://img.shields.io/badge/Guide-End%20User-blue.svg?style=for-the-badge)](https://rawgit.com/atanasyanew/JKPG-Library/master/docs/Presentation/index.html)
 
 ### Description
 School project in the course [Server-side Web Development (TPWK16)](http://ju.se/JTH/en/education/courses.html?courseCode=TPWK16&semester=20161&lang=en) at [Jönköping University](https://ju.se/). 
