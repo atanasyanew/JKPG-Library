@@ -4,9 +4,9 @@
 !_Resources/*
 !_Resources/App_Data/*
 .vs
-library_jkpg/bin/*
-library_jkpg/obj/*
-packages/*
+JKPG-Library/library_jkpg/bin/*
+JKPG-Library/library_jkpg/obj/*
+JKPG-Library/packages/*
 
 
 ## Ignore Visual Studio temporary files, build results, and
